@@ -1,0 +1,4 @@
+storeFile=../private/gansha-release.jks
+storePassword=REPLACE_LOCALLY
+keyAlias=gansha
+keyPassword=REPLACE_LOCALLY

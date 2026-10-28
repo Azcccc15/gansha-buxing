@@ -1,0 +1,9 @@
+{
+  "name": "gansha-buxing-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "干啥不行 · DeepSeek 目标规划接口",
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node src/server.mjs", "test": "node --test" }
+}

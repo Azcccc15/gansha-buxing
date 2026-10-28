@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#426b52"><title>干啥不行 · 让目标发生</title>
+  <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/settings.css"><link rel="stylesheet" href="/appui.css">
+  <script src="/app.js" type="module"></script><script src="/goals.js" type="module"></script>
+</head>
+<body>
+<main class="app-shell">
+  <header class="app-header"><a class="brand" href="#today"><span class="mark">↗</span>干啥不行</a><span class="version">V1.0 · 一点点做到</span></header>
+  <nav class="app-nav" aria-label="主导航">
+    <button type="button" data-view="today" aria-current="page">今日行动</button><button type="button" data-view="goals">我的目标</button><button type="button" data-view="create">＋ 新目标</button><button type="button" data-view="settings">设置</button>
+  </nav>
+  <section data-page="today">
+    <div class="page-intro"><p class="eyebrow" id="today-date"></p><h1>把想做的事，<br><em>变成做过的事。</em></h1><p>不用一下子很厉害，今天往前走一点就好。</p></div>
+    <div class="stats" aria-label="我的进展"><div><span>今日完成</span><strong id="stat-today">0</strong></div><div><span>进行中的目标</span><strong id="stat-active">0</strong></div><div><span>已达成目标</span><strong id="stat-achieved">0</strong></div></div>
+    <div class="section-head"><h2>今天的小步行动</h2><span>每一步都算数</span></div><div id="today-list"></div>
+  </section>
+  <section data-page="goals" hidden><div class="page-intro"><p class="eyebrow">我的成长地图</p><h1>你的每一个认真，<br><em>都留在这里。</em></h1></div><div id="goals-list"></div><div class="section-head history-head"><h2>成就与历史</h2></div><div id="history-list"></div></section>
+  <section data-page="create" hidden>
+    <div class="page-intro"><p class="eyebrow">说出想法，剩下的一起想</p><h1>你说目标，<br><em>小干来规划。</em></h1><p>学习、阅读、创作、生活习惯……从你想做的事开始。</p></div>
+    <div id="connection" class="notice" role="status">正在检查 AI 连接……</div>
+    <div class="layout"><section class="panel"><div class="section-head"><h2>想做什么？</h2><span>01 / 目标</span></div>
+      <form id="goal-form"><label for="goal">你的目标</label><textarea id="goal" required maxlength="500" rows="4" placeholder="我想在30天内读完一本一直想读的书……"></textarea>
+        <div class="fields"><label>计划周期（天）<input id="days" type="number" min="1" max="3650" value="30" required></label><label>每天可用时间（可选）<input id="minutes" type="number" min="5" max="480" placeholder="让 AI 建议，单位：分钟"></label></div>
+        <p class="fine">需要补充时，只用点选“是”或“否”。分析会将目标和回答发送至 DeepSeek，请勿填写身份证号等无关信息。</p>
+        <button id="generate" type="submit">生成我的方案 ↗</button><button id="cancel" type="button" class="secondary" hidden>取消本次分析</button>
+      </form><p id="message" role="status" aria-live="polite"></p>
+    </section><section class="panel output"><div class="section-head"><h2>你的行动路线</h2><span>02 / 方案</span></div><div id="result" aria-live="polite"><div class="empty"><span class="empty-mark">↗</span><h3>一个想法，就可以开始</h3><p>AI 会替你拆成阶段和行动，确认后才加入目标。</p></div></div><details id="response-details" hidden><summary>查看方案数据</summary><pre id="response-json"></pre></details></section></div>
+  </section>
+  <section data-page="settings" id="settings" hidden>
+    <div class="page-intro"><p class="eyebrow">按你的方式前进</p><h1>把小干，<br><em>设置成你的样子。</em></h1></div>
+    <section class="panel settings-panel" aria-labelledby="settings-title"><div class="section-head"><h2 id="settings-title">DeepSeek 接口设置</h2><span id="settings-state" class="settings-state">读取中</span></div>
+      <form id="settings-form"><div class="settings-fields"><label for="deepseek-key">API 密钥<input id="deepseek-key" type="password" maxlength="512" autocomplete="off" spellcheck="false" autocapitalize="none" placeholder="粘贴你的 DeepSeek API Key"></label><label for="deepseek-model">模型<input id="deepseek-model" type="text" maxlength="100" value="deepseek-flash" required spellcheck="false"></label></div>
+        <p id="key-hint" class="fine">安卓端由系统密钥库加密保存；电脑端保存在本机服务配置。页面不会回显旧密钥。</p><div class="settings-actions"><button id="settings-save" type="submit">保存设置</button><button id="settings-test" type="button" class="secondary">测试连接</button></div>
+        <details><summary>高级连接设置</summary><label for="token">接口访问口令</label><input id="token" type="password" autocomplete="off" placeholder="电脑开发服务设置了访问口令时填写"></details><p id="settings-message" role="status" aria-live="polite"></p>
+      </form></section>
+    <section class="panel"><div class="section-head"><h2>行动提醒</h2><span id="reminder-state">未开启</span></div><p class="summary" id="reminder-help">安卓端支持本地通知，电脑端可以导出日历。</p><button id="reminder-toggle" type="button" class="secondary">开启行动提醒</button><p class="fine">系统省电策略可能推迟通知；此功能不作为紧急或医疗提醒。重启手机后会恢复未到期的提醒。</p></section>
+    <section class="panel"><h2>数据与隐私</h2><p class="summary">目标和完成记录保存在当前设备。卸载应用或清除应用数据会移除记录，建议定期导出留存；V1.0 暂不支持导入恢复。</p><button id="export-data" type="button" class="secondary">导出我的记录</button><details><summary>隐私说明</summary><p>本软件不注册账号，不接入广告或统计 SDK。仅在你点击分析或连接测试时向 DeepSeek 发送相关请求，AI 调用可能产生你账户内的费用。手机密钥使用 Android Keystore 加密；电脑开发服务将密钥保存在本机配置文件。目标记录不随分析自动上传，分析后续行动时会附带必要的目标摘要。</p><p>AI 方案需要你确认，仅供目标规划参考，不能保证结果，不能替代专业判断。日历通过系统编辑页交由你确认写入，不读取现有日历。</p><p>本地数据由你控制，软件没有后台账户或云端个人资料。如需反馈可使用项目仓库的 Issues；请先去除个人信息和密钥。</p></details></section>
+    <p class="app-about">干啥不行目标规划管理软件 V1.0<br>个人目标规划与行动记录</p>
+  </section>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="confirm-dialog"><form method="dialog"><p class="eyebrow">请认真确认一下</p><h2 id="confirm-title"></h2><p id="confirm-copy"></p><div class="dialog-actions"><button value="cancel" type="submit" class="secondary">再想想</button><button value="confirm" type="submit">确认</button></div></form></dialog>
+  <dialog id="celebration"><div class="celebrate-mark" aria-hidden="true">✦</div><p class="eyebrow" id="celebrate-label">这一步，值得庆祝</p><h2 id="celebrate-title"></h2><p id="celebrate-copy"></p><button id="celebrate-close" type="button">收下这份成就 ↗</button></dialog>
+</main>
+</body></html>

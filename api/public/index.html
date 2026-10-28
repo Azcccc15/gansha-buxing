@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>干啥不行 · DeepSeek 接口测试</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/settings.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <main class="workspace">
+    <header><a class="brand" href="/"><span class="mark">↗</span>干啥不行</a><a class="settings-link" href="#settings">接口设置 ↗</a></header>
+    <section class="intro"><p class="eyebrow">让一个想法，有了下一步</p><h1>你说目标，<br><em>小干来规划。</em></h1><p>在下方填写 DeepSeek API 密钥，就能开始生成你的行动方案。</p></section>
+    <div id="connection" class="notice" role="status">正在检查接口配置……</div>
+    <section id="settings" class="panel settings-panel" aria-labelledby="settings-title">
+      <div class="section-head"><div><p class="eyebrow">连接你的 AI 助手</p><h2 id="settings-title">DeepSeek 接口设置</h2></div><span id="settings-state" class="settings-state">读取中</span></div>
+      <form id="settings-form">
+        <div class="settings-fields">
+          <label for="deepseek-key">API 密钥<input id="deepseek-key" type="password" maxlength="512" autocomplete="off" spellcheck="false" autocapitalize="none" placeholder="在这里粘贴你的 DeepSeek API Key，例如 sk-…"></label>
+          <label for="deepseek-model">模型<input id="deepseek-model" type="text" maxlength="100" value="deepseek-flash" required spellcheck="false"></label>
+        </div>
+        <p id="key-hint" class="fine">密钥保存到本机服务端，不会写入浏览器存储或在页面回显。</p>
+        <div class="settings-actions"><button id="settings-save" type="submit">保存设置</button><button id="settings-test" class="secondary" type="button">测试连接</button></div>
+        <details><summary>高级连接设置</summary><label for="token">接口访问口令</label><input id="token" type="password" autocomplete="off" placeholder="本机通常留空；设置了 APP_API_TOKEN 时填写"><p class="fine">此口令与 DeepSeek API 密钥不同；填写后点击保存或测试，会重新读取连接状态。</p></details>
+        <p id="settings-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <div class="layout">
+      <section class="panel">
+        <div class="section-head"><h2>想做什么？</h2><span>01 / 目标</span></div>
+        <form id="goal-form">
+          <label for="goal">你的目标</label>
+          <textarea id="goal" required maxlength="500" rows="4" placeholder="例如：我想在 30 天内读完一本一直想读的书"></textarea>
+          <div class="fields">
+            <label>计划周期（天）<input id="days" type="number" min="1" max="3650" value="30" required></label>
+            <label>每天可用时间（可选）<input id="minutes" type="number" min="5" max="480" placeholder="让 AI 建议，单位：分钟"></label>
+          </div>
+          <p class="fine">有必要补充时，小干会给你简短的是非题，点选即可。</p>
+          <button id="generate" type="submit">生成我的方案 <span>↗</span></button>
+          <button id="cancel" type="button" class="secondary" hidden>取消本次分析</button>
+          <p class="fine">方案等待你确认；此测试页不会创建任务、闹钟或日历事件。</p>
+        </form>
+        <p id="message" role="status" aria-live="polite"></p>
+      </section>
+      <section class="panel output">
+        <div class="section-head"><h2>你的行动路线</h2><span>02 / 方案</span></div>
+        <div id="result" aria-live="polite"><div class="empty"><span class="empty-mark">↗</span><h3>从一句“我想”开始</h3><p>生成后，这里会显示阶段规划、近期行动、完成标准和使用的假设。</p></div></div>
+        <details id="response-details" hidden><summary>查看接口返回数据</summary><pre id="response-json"></pre></details>
+      </section>
+    </div>
+    <footer>干啥不行 · 开发测试入口 · POST /api/v1/plans/analyze</footer>
+  </main>
+</body>
+</html>

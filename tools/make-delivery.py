@@ -19,7 +19,7 @@ def check_bytes(data, name):
     if any(secret in data for secret in secrets): raise RuntimeError('Secret found in publish file: ' + name)
 
 source_manifest = []
-with zipfile.ZipFile(OUT / 'GitHub源码上传包-v1.0.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
+with zipfile.ZipFile(OUT / 'GitHubԴ���ϴ���-v1.0.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
     for name in files:
         data = (ROOT / name).read_bytes(); check_bytes(data, name)
         info = zipfile.ZipInfo('gansha-buxing/' + name)
@@ -38,46 +38,46 @@ with zipfile.ZipFile(apk) as archive:
 shutil.copyfile(apk, OUT / 'gansha-buxing-v1.0.apk')
 
 materials = ROOT / 'private/copyright'
-metadata = json.loads((materials / '源码统计与文件校验.json').read_text(encoding='utf-8'))
+metadata = json.loads((materials / 'Դ��ͳ�����ļ�У��.json').read_text(encoding='utf-8'))
 for item in metadata['files']:
     assert hashlib.sha256((ROOT / item['file']).read_bytes()).hexdigest() == item['sha256'], 'Stale source material: ' + item['file']
-with zipfile.ZipFile(OUT / '软著申请材料-柴元勋-v1.0.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
+with zipfile.ZipFile(OUT / '�����������-��Ԫѫ-v1.0.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
     for path in sorted(materials.iterdir()):
         if path.is_file(): archive.write(path, path.name)
 
-with zipfile.ZipFile(OUT / '签名私密备份-禁止公开.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
+with zipfile.ZipFile(OUT / 'ǩ��˽�ܱ���-��ֹ����.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
     archive.write(ROOT / 'private/gansha-release.jks', 'private/gansha-release.jks')
     archive.write(ROOT / 'android/signing.properties', 'android/signing.properties')
-    archive.writestr('保管说明.txt', '此包包含发布签名及其配置。不要上传 GitHub 或公开分享。请在安全位置另存一份，后续升级必须使用同一签名。这里不包含 DeepSeek API 密钥。')
+    archive.writestr('����˵��.txt', '�˰���������ǩ���������á���Ҫ�ϴ� GitHub �򹫿����������ڰ�ȫλ������һ�ݣ�������������ʹ��ͬһǩ�������ﲻ���� DeepSeek API ��Կ��')
 
-readme = f'''# 交付说明
+readme = f'''# ����˵��
 
-软件：干啥不行目标规划管理软件 V1.0
-拟著作权人：柴元勋（个人，按本人提供的信息准备）
+��������ɶ����Ŀ��滮�������� V1.0
+������Ȩ�ˣ���Ԫѫ�����ˣ��������ṩ����Ϣ׼����
 
-## 文件怎么用
+## �ļ���ô��
 
-- gansha-buxing-v1.0.apk：正式签名的安卓安装包，传到手机后安装；在软件“设置”里填自己的 DeepSeek 密钥。
-- GitHub源码上传包-v1.0.zip：解压后上传自己的仓库。默认建议先用私密仓库，实际公开后须核对软著发表状态。
-- 软著申请材料-柴元勋-v1.0.zip：包含源程序鉴别材料 {metadata['submittedPages']} 页、操作说明书、申请填报参考、界面操作示例和源码统计校验。先解压，再按官方栏目选择PDF；不是把整个ZIP直接当申请材料上传。
-- 签名私密备份-禁止公开.zip：只供自己保管，不上传仓库或公开 Release。后续更新应用需要同一签名。
+- gansha-buxing-v1.0.apk����ʽǩ���İ�׿��װ���������ֻ���װ�������������á������Լ��� DeepSeek ��Կ��
+- GitHubԴ���ϴ���-v1.0.zip����ѹ���ϴ��Լ��Ĳֿ⡣Ĭ�Ͻ�������˽�ֿܲ⣬ʵ�ʹ�������˶���������״̬��
+- �����������-��Ԫѫ-v1.0.zip������Դ���������� {metadata['submittedPages']} ҳ������˵���顢������ο����������ʾ����Դ��ͳ��У�顣�Ƚ�ѹ���ٰ��ٷ���Ŀѡ��PDF�����ǰ�����ZIPֱ�ӵ���������ϴ���
+- ǩ��˽�ܱ���-��ֹ����.zip��ֻ���Լ����ܣ����ϴ��ֿ�򹫿� Release����������Ӧ����Ҫͬһǩ����
 
-## 已验证与仍需自己完成
+## ����֤�������Լ����
 
-67项Node检查、4项安卓Java校验测试、浏览器完整操作流程、正式包构建、Android Lint零问题和APK签名校验通过。源码、材料和APK资源已核对，公开源码包未包含真实密钥或签名。
+67��Node��顢4�׿JavaУ����ԡ�����������������̡���ʽ��������Android Lint�������APKǩ��У��ͨ����Դ�롢���Ϻ�APK��Դ�Ѻ˶ԣ�����Դ���δ������ʵ��Կ��ǩ����
 
-尚未在你的安卓手机实测。电脑模拟器未正常启动，不能据此宣布通知、重启恢复、系统日历、文件导出和手机密钥留存已经设备验收通过。请先在实际手机试用；没有进行商店上架或公网部署。
+��δ����İ�׿�ֻ�ʵ�⡣����ģ����δ�������������ܾݴ�����֪ͨ�������ָ���ϵͳ�������ļ��������ֻ���Կ�����Ѿ��豸����ͨ����������ʵ���ֻ����ã�û�н����̵��ϼܻ�������
 
-GitHub私密仓库已创建并上传源码：https://github.com/Azcccc15/gansha-buxing 。首次源码上传的接口测试和安卓构建两项远程检查均已成功，记录为 https://github.com/Azcccc15/gansha-buxing/actions/runs/40702968762 。仓库尚未公开，未发布安装包Release。
+GitHubԴ��ֿ⣺https://github.com/Azcccc15/gansha-buxing ���״�Դ���ϴ��Ľӿڲ��ԺͰ�׿��������Զ�̼����ѳɹ�����¼Ϊ https://github.com/Azcccc15/gansha-buxing/actions/runs/40702968762 ����׿��������غͷ�����¼�� https://github.com/Azcccc15/gansha-buxing/releases/tag/v1.0.0 �� docs/RELEASE.md���ֿ�ɼ����� GitHub ��ǰ����Ϊ׼��
 
-软著尚未提交。你需要在中国版权保护中心完成本人实名认证、补齐真实证件与联系资料、核实开发方式和权属、按实际填写完成和发表信息、本人签署系统生成的签章页后提交。不要将身份证明放进公共仓库。材料齐全不代表官方审核已通过。
+������δ�ύ������Ҫ���й���Ȩ����������ɱ���ʵ����֤��������ʵ֤������ϵ���ϡ���ʵ������ʽ��Ȩ������ʵ����д��ɺͷ�����Ϣ������ǩ��ϵͳ���ɵ�ǩ��ҳ���ύ����Ҫ������֤���Ž������ֿ⡣������ȫ�������ٷ������ͨ����
 
-官方入口：https://register.ccopyright.com.cn/registration.html#/registerSoft
-官方所需文件：https://www.ccopyright.com.cn/index.php?optionid=1080
+�ٷ���ڣ�https://register.ccopyright.com.cn/registration.html#/registerSoft
+�ٷ������ļ���https://www.ccopyright.com.cn/index.php?optionid=1080
 
-完整源码量统计口径与文件SHA-256见申请材料内的统计文件；源程序不足60页时交存全部，未复制代码凑页。
+����Դ����ͳ�ƿھ����ļ�SHA-256����������ڵ�ͳ���ļ���Դ������60ҳʱ����ȫ����δ���ƴ����ҳ��
 '''
-(OUT / '先读我-交付说明.md').write_text(readme, encoding='utf-8')
+(OUT / '�ȶ���-����˵��.md').write_text(readme, encoding='utf-8')
 hashes = []
 for path in sorted(OUT.iterdir()):
     if path.is_file() and path.name != 'SHA256SUMS.txt': hashes.append(hashlib.sha256(path.read_bytes()).hexdigest() + '  ' + path.name)

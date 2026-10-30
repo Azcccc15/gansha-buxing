@@ -1,33 +1,33 @@
-# GitHub ��������
+# GitHub 发布操作
 
-1. ��ʹ��˽�ֿܲⱣ����롣����Ŀ¼�е� GitHub Դ���������ʵ��Կ��ǩ���ļ�������������ϻ򱾵ع��߻��档
-2. ���Լ��� GitHub �˺��½��ղֿ⣬����ֿ��� gansha-buxing����Դ�����ѹ��������ϴ�����������ĿĿ¼�����Լ���Զ�ֿ̲��ַ������ main ��֧��
-3. �ֿ����ṩ�Զ�������̣�Node �ӿں����ݹ����顢��׿���԰������� Android Lint��Զ��ִ�н��Ҫ�� Actions ҳ���ʵ������ͨ��������Զ���Ѿ����С�
-4. ��װ������ͨ�� GitHub Releases �������汾��ǩ v1.0.0����������ʽǩ�� APK �� CI �Զ����ɵĵ��԰��ֿ�ʹ�á�ǩ��˽�ܱ��ݱ��뵥�����ܣ����ϴ��ֿ�򹫿� Release��
-5. ������ʹ�ÿ�Դ����֤����Ҫ��Ȩ��������ѡ��Ŀǰֻ�ṩȨ������˵�����������ʲ����� MIT �� Apache ��Ȩ��
-6. �����ֿ�򹫿�������װ������Ӱ�����������еġ�����״̬�����״ι������ڡ��ص�Ϳ����������Ӧ��ʵ�������д�������ڹ��������������δ������
+1. 先使用私密仓库保存代码。交付目录中的 GitHub 源码包不含真实密钥、签名文件、个人申请材料或本地工具缓存。
+2. 在自己的 GitHub 账号新建空仓库，建议仓库名 gansha-buxing。将源码包解压后的内容上传，或者在项目目录添加自己的远程仓库地址后推送 main 分支。
+3. 仓库已提供自动检查流程：Node 接口和数据规则检查、安卓测试包构建及 Android Lint。远程执行结果要在 Actions 页面核实，本地通过不代表远程已经运行。
+4. 安装包建议通过 GitHub Releases 发布，版本标签 v1.0.0。交付的正式签名 APK 与 CI 自动生成的调试包分开使用。签名私密备份必须单独保管，不上传仓库或公开 Release。
+5. 若决定使用开源许可证，需要由权利人另行选择。目前只提供权利保留说明，公开访问不等于 MIT 或 Apache 授权。
+6. 公开仓库或公开发布安装包可能影响软著表格中的“发表状态”。首次公开日期、地点和开发完成日期应按实际情况填写；不能在公开后继续声称尚未发表。
 
-2026��10��28���Ѵ����ֿ� https://github.com/Azcccc15/gansha-buxing ���ϴ� main ��֧���״�Դ���ϴ��Ľӿڲ����밲׿����������ͨ����
+2026年10月28日已创建仓库 https://github.com/Azcccc15/gansha-buxing 并上传 main 分支。首次源码上传的接口测试与安卓构建检查均已通过。
 
-2026��10��30���ѷ��� [V1.0 ��׿�����](https://github.com/Azcccc15/gansha-buxing/releases/tag/v1.0.0)���� GitHub ��Ϊ Pre-release������Ϊ��ʽǩ���� `gansha-buxing-v1.0.apk` �ͽ�У��� APK �� `SHA256SUMS.txt`����ҳ�ṩֱ�����ذ�ť���ֿ�ɼ����� GitHub ҳ��ʵ�ʱ��Ϊ׼�������������������¼����δ�ύ�������룬����״̬������Ӧ��ʵ�ʹ�����¼��ʵ��
+2026年10月30日已发布 [V1.0 安卓体验版](https://github.com/Azcccc15/gansha-buxing/releases/tag/v1.0.0)，在 GitHub 标为 Pre-release，附件为正式签名的 `gansha-buxing-v1.0.apk` 和仅校验该 APK 的 `SHA256SUMS.txt`。首页提供直接下载按钮。仓库可见性以 GitHub 页面实际标记为准；公开后下载者无需登录。尚未提交软著申请，发表状态与日期应按实际公开记录核实。
 
-## �����������
+## 对外下载入口
 
-- ��Ŀ��ҳ��https://github.com/Azcccc15/gansha-buxing
-- �汾˵����https://github.com/Azcccc15/gansha-buxing/releases/tag/v1.0.0
-- APK ֱ����https://github.com/Azcccc15/gansha-buxing/releases/download/v1.0.0/gansha-buxing-v1.0.apk
-- APK SHA-256��`3441caf40c3a5579d456ebd86a69dd41b489deae1df7d1e842adad9d8cd235f9`
+- 项目首页：https://github.com/Azcccc15/gansha-buxing
+- 版本说明：https://github.com/Azcccc15/gansha-buxing/releases/tag/v1.0.0
+- APK 直链：https://github.com/Azcccc15/gansha-buxing/releases/download/v1.0.0/gansha-buxing-v1.0.apk
+- APK SHA-256：`3441caf40c3a5579d456ebd86a69dd41b489deae1df7d1e842adad9d8cd235f9`
 
-�����Դ�����������׶Σ�δ���������ա����غ����û���ϵͳ��ʾȷ�ϰ�װ���������������������Լ��� DeepSeek API ��Կ��API ʹ���û��˻���ȣ��������ṩ������Կ��
+本版仍处于早期体验阶段，未完成真机验收。下载后由用户按系统提示确认安装，并在软件设置中配置自己的 DeepSeek API 密钥。API 使用用户账户额度，软件不提供公共密钥。
 
-�����汾Ӧʹ���±�ǩ�Ͷ�Ӧ��װ����������ҳ�������ӡ��ϴ�ǰ��鵱ǰ�ļ�����������ʷ�� APK ���ݣ�ȷ�ϲ�����ʵ���á�ǩ��˽Կ�����������ϣ���Ҫֱ�Ӱ����� `deliverables` Ŀ¼�ϴ�����Ϊ����ͬʱ������˽�ܽ����ļ���
+后续版本应使用新标签和对应安装包，更新首页下载链接。上传前检查当前文件、待公开历史和 APK 内容，确认不含真实配置、签名私钥或个人申请材料；不要直接把整个 `deliverables` 目录上传，因为其中同时保存了私密交付文件。
 
-## ��������
+## 本机构建
 
-ʹ�� JDK 17��Android SDK 35��Build Tools 35.0.0��Gradle 8.11.1��Android Gradle Plugin 8.9.3��ʹ�� Android Studio �� android �ļ��к�ͬ��������Ҳ��ʹ�� Gradle Wrapper��
+使用 JDK 17、Android SDK 35、Build Tools 35.0.0、Gradle 8.11.1、Android Gradle Plugin 8.9.3。使用 Android Studio 打开 android 文件夹后同步构建；也可使用 Gradle Wrapper。
 
-��׿Դ��ʹ�� Java 17����� Android 8.0��API 26������Ҫ���µ� Android System WebView������ʱֻ����ϵͳ�⣬�޹������ SDK��������Դ�ɹ�������� api/public ͬ����AI ��ʾ�ʴ� api/src/system-prompt.txt ͬ�������޸�Դ�ļ���������Ŀ¼��
+安卓源码使用 Java 17，最低 Android 8.0（API 26），需要更新的 Android System WebView。运行时只依赖系统库，无广告或分析 SDK。界面资源由构建任务从 api/public 同步，AI 提示词从 api/src/system-prompt.txt 同步，请修改源文件而非生成目录。
 
-��ʽǩ���ڱ��� android/signing.properties ���ã�ʾ��Ϊ android/signing.properties.example�����ü���Ӧǩ���ļ��������ֿ⡣û��ǩ������ʱ assembleRelease ֻ����δǩ��������ܽ��䵱����ǩ����װ��������
+正式签名在本机 android/signing.properties 配置，示例为 android/signing.properties.example。配置及对应签名文件都不进仓库。没有签名配置时 assembleRelease 只生成未签名产物，不能将其当成已签名安装包交付。
 
-Windows ����Ŀ¼����Ӱ�� Java ���Խ��̣���ʹ�� tools/build-android-ascii.ps1 -Release���ڱ�����ʱĿ¼�����ܱ�Ǳ����Ĺ�������������ͨ�����Ʋ���ͱ������Ŀ����ʱǩ���������ڽ���ʱ�Ƴ���ʹ��ǰ����׼���������ߺ�ǩ������ϸ��֤����豸ȷ�Ϸ�Χ�� docs/VERIFICATION.md��
+Windows 中文目录可能影响 Java 测试进程，可使用 tools/build-android-ascii.ps1 -Release：在本机临时目录创建受标记保护的构建副本，构建通过后复制产物和报告回项目；临时签名副本会在结束时移除。使用前需已准备本机工具和签名。详细验证与待设备确认范围见 docs/VERIFICATION.md。

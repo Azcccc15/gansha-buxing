@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
-  <title id="title">��ɶ����</title>
-  <desc id="desc">���������£�����������¡�˵��Ŀ�꣬AI�滮��ÿ���ж���</desc>
+  <title id="title">干啥不行</title>
+  <desc id="desc">把想做的事，变成做过的事。说出目标，AI规划，每日行动。</desc>
   <rect width="1200" height="340" rx="28" fill="#214638"/>
   <path d="M850 340V250h100v-70h100v-70h150v230Z" fill="#365e4c"/>
   <path d="M850 250h100v-70h100v-70h150" fill="none" stroke="#bdd4a6" stroke-width="5"/>
   <path d="m1073 65 19 19 38-42" fill="none" stroke="#dfedca" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
   <g fill="#fff" font-family="Microsoft YaHei,PingFang SC,Noto Sans CJK SC,sans-serif">
-    <text x="68" y="128" font-size="74" font-weight="700">��ɶ����</text>
-    <text x="70" y="199" font-size="34" font-weight="500">���������£�����������¡�</text>
-    <text x="72" y="270" font-size="23" fill="#d1dfcf">˵��Ŀ�ꡡ/��AI �滮��/��ÿ���ж�</text>
+    <text x="68" y="128" font-size="74" font-weight="700">干啥不行</text>
+    <text x="70" y="199" font-size="34" font-weight="500">把想做的事，变成做过的事。</text>
+    <text x="72" y="270" font-size="23" fill="#d1dfcf">说出目标　/　AI 规划　/　每日行动</text>
   </g>
 </svg>

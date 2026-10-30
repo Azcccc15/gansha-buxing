@@ -1,10 +1,10 @@
 <div align="center">
 
-![干啥不行：把想做的事，变成做过的事](docs/assets/hero.svg)
+![干啥不行：把想做的事，变成做过的事](docs/assets/hero-v1.svg)
 
 **目标写下了，下一步怎么走？让 AI 帮你把它拆成今天能做的一件事。**
 
-[![下载安卓体验版 APK](docs/assets/download-android.svg)](https://github.com/Azcccc15/gansha-buxing/releases/download/v1.0.0/gansha-buxing-v1.0.apk)
+[![下载安卓体验版 APK](docs/assets/download-android-v1.svg)](https://github.com/Azcccc15/gansha-buxing/releases/download/v1.0.0/gansha-buxing-v1.0.apk)
 
 [版本说明与校验文件](https://github.com/Azcccc15/gansha-buxing/releases/tag/v1.0.0) · [使用指南](docs/USER_GUIDE.md) · [反馈问题](https://github.com/Azcccc15/gansha-buxing/issues)
 

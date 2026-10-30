@@ -9,7 +9,7 @@
 
 2026年10月28日已创建仓库 https://github.com/Azcccc15/gansha-buxing 并上传 main 分支。首次源码上传的接口测试与安卓构建检查均已通过。
 
-2026年10月30日已发布 [V1.0 安卓体验版](https://github.com/Azcccc15/gansha-buxing/releases/tag/v1.0.0)，在 GitHub 标为 Pre-release，附件为正式签名的 `gansha-buxing-v1.0.apk` 和仅校验该 APK 的 `SHA256SUMS.txt`。首页提供直接下载按钮。仓库可见性以 GitHub 页面实际标记为准；公开后下载者无需登录。尚未提交软著申请，发表状态与日期应按实际公开记录核实。
+2026年10月30日仓库已设为公开，并发布 [V1.0 安卓体验版](https://github.com/Azcccc15/gansha-buxing/releases/tag/v1.0.0)，在 GitHub 标为 Pre-release，附件为正式签名的 `gansha-buxing-v1.0.apk` 和仅校验该 APK 的 `SHA256SUMS.txt`。首页提供直接下载按钮；已验证匿名访问项目首页、发布页与 APK 均返回成功，下载内容与本机签名安装包一致。尚未提交软著申请，发表状态与日期应按实际公开记录核实。
 
 ## 对外下载入口
 
